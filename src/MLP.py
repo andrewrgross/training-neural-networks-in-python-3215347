@@ -20,8 +20,16 @@ class Perceptron:
 
     def set_weights(self, w_init):
         # w_init is a list of floats. Organize it as you'd like.
-        pass
+        self.weights = np.array(w_init)
 
     def sigmoid(self, x):
         # return the output of the sigmoid function applied to x.
-        pass
+        return 1/(1+np.exp(-x))
+
+# test
+neuron = Perceptron(inputs=2)
+neuron.set_weights([10,10,-15])  #AND
+
+print("Gate:")
+print("0 0 = {0:.10f}".format(neuron.run([0,0])))
+print ("0 1 = {o:.10f}".format(neuron.run([0,1])))
